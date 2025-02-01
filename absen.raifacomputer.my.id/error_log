@@ -1,4 +1,0 @@
-[02-Aug-2024 20:25:27 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function infophp() in /home/raid8317/public_html/absen.raifacomputer.my.id/info.php:1
-Stack trace:
-#0 {main}
-  thrown in /home/raid8317/public_html/absen.raifacomputer.my.id/info.php on line 1
