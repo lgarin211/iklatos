@@ -247,36 +247,68 @@
         const keluar = new Date(`${bulan2} ${tanggal}, ${tahun} <?= $absenkeluar ?>`).getTime();
         const akhirkeluar = new Date(`${bulan2} ${tanggal}, ${tahun} <?= $akhirkeluar ?>`).getTime();
 
+        // function setResult(result) {
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: "<?php echo base_url(); ?>/ajax/inputabsen",
+        //         data: {
+        //             nis: result,
+        //         },
+        //         dataType: 'json',
+        //         success: function(data) {
+        //             if (data.status == 'false') {
+        //                 $('.fotoprofil').html(`<h1 class="text-${data.alert} text-center mt-4">${data.message}</h1>`);
+        //                 $('.namasiswa').html('');
+        //                 $('.tanggal').html('');
+        //             } else if (data.status == 'true') {
+        //                 console.log(data);
+        //                 let image = data['gambar'];
+        //                 let tanggal = `${r.getDate()} ${bulan(r.getMonth())} ${r.getFullYear()} - ${r.getHours()}:${r.getMinutes()}:${r.getSeconds()}`;
+        //                 $('.textberhasil').html('Berhasil absen');
+        //                 $('.fotoprofil').html(
+        //                     `<img src="<?= base_url() ?>assets/images/user/${image}" alt="" width="300" height="300">`
+        //                 );
+        //                 $('.namasiswa').html(data['nama_siswa']);
+        //                 $('.tanggal').html(tanggal);
+        //             }
+        //         },
+        //         error: function() {
+        //             console.log('kesalahan system')
+        //         }
+        //     });
+        // }
+
+
         function setResult(result) {
-            $.ajax({
-                type: 'POST',
-                url: "<?php echo base_url(); ?>/ajax/inputabsen",
-                data: {
-                    nis: result,
-                },
-                dataType: 'json',
-                success: function(data) {
-                    if (data.status == 'false') {
-                        $('.fotoprofil').html(`<h1 class="text-${data.alert} text-center mt-4">${data.message}</h1>`);
-                        $('.namasiswa').html('');
-                        $('.tanggal').html('');
-                    } else if (data.status == 'true') {
-                        console.log(data);
-                        let image = data['gambar'];
-                        let tanggal = `${r.getDate()} ${bulan(r.getMonth())} ${r.getFullYear()} - ${r.getHours()}:${r.getMinutes()}:${r.getSeconds()}`;
-                        $('.textberhasil').html('Berhasil absen');
-                        $('.fotoprofil').html(
-                            `<img src="<?= base_url() ?>assets/images/user/${image}" alt="" width="300" height="300">`
-                        );
-                        $('.namasiswa').html(data['nama_siswa']);
-                        $('.tanggal').html(tanggal);
-                    }
-                },
-                error: function() {
-                    console.log('kesalahan system')
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url(); ?>/ajax/inputabsen",
+            data: {
+                nis: result,
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.status == 'false') {
+                    $('.fotoprofil').html(`<h1 class="text-${data.alert} text-center mt-4">${data.message}</h1>`);
+                    $('.namasiswa').html('');
+                    $('.tanggal').html('');
+                } else if (data.status == 'true') {
+                    console.log(data);
+                    let image = data['gambar'];
+                    let tanggal = `${r.getDate()} ${bulan(r.getMonth())} ${r.getFullYear()} - ${r.getHours()}:${r.getMinutes()}:${r.getSeconds()}`;
+                    $('.textberhasil').html('Berhasil absen');
+                    $('.fotoprofil').html(
+                        `<img src="<?= base_url() ?>assets/images/user/${image}" alt="" width="300" height="300">`
+                    );
+                    $('.namasiswa').html(data['nama_siswa']);
+                    $('.tanggal').html(tanggal);
                 }
-            });
-        }
+            },
+            error: function() {
+                console.log('kesalahan system')
+            }
+        });
+    }
 
         // ####### Web Cam Scanning #######
         const scanner = new Instascan.Scanner({
